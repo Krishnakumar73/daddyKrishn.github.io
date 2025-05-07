@@ -1,20 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaddyKrishn</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .photo-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .photo-card {
+      max-width: 280px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .photo-card img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
 <body>
   <h1>Welcome to DaddyKrishn.in</h1>
-  <p>Legacy. Strength. And Jo's Light guiding the path of Krishna forever.</p>
+  <p>True legacy, strength, and Jo’s light — love without boundaries guiding Krishna’s path forever.</p>
 
   <div class="photo-gallery">
     <div class="photo-card">
-      <img src="IMG-20231126-WA0055.jpg" alt="Jo - Joy and Light" />
-      <p>Jothika – Pure light and endless joy.</p>
+      <img src="IMG-20231126-WA0055.jpg" alt="Jo's Photo">
+      <p>My world — Jothika</p>
     </div>
-
     <div class="photo-card">
-      <img src="IMG-20231126-WA0062.jpg" alt="Krishna - Strength and Legacy" />
-      <p>Krishna – Strength, legacy, and unconditional love.</p>
+      <img src="IMG-20231126-WA0062.jpg" alt="Krishna's Photo">
+      <p>Your Daddy — Krishna</p>
     </div>
   </div>
 
   <footer>&copy; 2025 DaddyKrishn. All rights reserved.</footer>
 </body>
-
-
+</html>
