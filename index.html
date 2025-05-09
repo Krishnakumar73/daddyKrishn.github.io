@@ -1,149 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DaddyKrishn</title>
+  <title>Krishna's Private Gallery</title>
+  <meta charset="UTF-8">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      text-align: center;
-      max-width: 600px;
-    }
-
-    .gallery-btn {
-      margin: 30px 0;
-      padding: 12px 24px;
-      font-size: 1rem;
       background-color: #111;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      color: #eee;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
     }
-
-    .gallery-btn:hover {
-      background-color: #444;
-    }
-
-    .photo-gallery {
-      display: none;
-      flex-direction: column;
-      gap: 30px;
-      margin-top: 20px;
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    .photo-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+    img {
       max-width: 90%;
-    }
-
-    .photo-card img {
-      width: 100%;
       border-radius: 12px;
-      transition: opacity 1s ease-in;
+      margin-top: 20px;
+      box-shadow: 0 0 20px #222;
     }
-
-    .photo-card p {
-      font-size: 1rem;
-      margin-top: 10px;
-      color: #333;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #888;
+    h1 {
+      color: #ffcc00;
     }
   </style>
 </head>
 <body>
-
-<h1>Welcome to DaddyKrishn.in</h1>
-<p>True legacy, strength, and Jo’s light — love without boundaries guiding Krishna’s path forever.</p>
-
-<button class="gallery-btn" onclick="toggleGallery()">View Our Gallery</button>
-
-<div class="photo-gallery">
-
-  <div class="photo-card">
-    <img src="IMG-20231126-WA0055.jpg" alt="Jo Light 1">
-    <p>My world — Jothika</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="IMG-20231126-WA0062.jpg" alt="Krishna Glow">
-    <p>Your Daddy Krishna</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="jo-candle-smile.jpg" alt="Jo Smiling">
-    <p>Her smile lights the dark</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="krish-holding-jo.jpg" alt="Bond Shot">
-    <p>Safe in Daddy's arms</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="jo-art-wall.jpg" alt="Jo Art Moment">
-    <p>Creative spark — Jo</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="krish-looking-ahead.jpg" alt="Focused Krishna">
-    <p>Bold. Strong. Focused.</p>
-  </div>
-
-</div>
-
-
-<footer>&copy; 2025 DaddyKrishn. All rights reserved.</footer>
-
-<audio autoplay loop hidden>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_b5e4f29ed8.mp3?filename=gentle-piano-110624.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  function toggleGallery() {
-    const gallery = document.getElementById('gallery');
-    if (gallery.style.display === 'flex') {
-      gallery.style.display = 'none';
-    } else {
-      gallery.style.display = 'flex';
-    }
-  }
-</script>
-
+  <h1 id="title">Loading image...</h1>
+  <img id="photo" src="" alt="Loading...">
+  <script>
+    fetch('photos.json')
+      .then(res => res.json())
+      .then(data => {
+        const image = data[0];
+        const imgUrl = "https://drive.google.com/uc?export=view&id=" + image.id;
+        document.getElementById('photo').src = imgUrl;
+        document.getElementById('title').innerText = image.title;
+      })
+      .catch(err => {
+        document.getElementById('title').innerText = "Failed to load image.";
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
